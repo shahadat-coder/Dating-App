@@ -1,5 +1,7 @@
+import 'package:dating_app/UI/screens/auth/Login_withPhone.dart';
 import 'package:dating_app/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -30,7 +32,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
             Button(label: "Continue to email", onPressed: (){}),
             const SizedBox(height: 15,),
             InkWell(
-              onTap: (){},
+              onTap: (){
+                Get.to(const LoginWithPhoneScreen());
+              },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 40,),
                 child: Container(
