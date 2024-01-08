@@ -14,7 +14,7 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      child: Container(
+      child:  Container(
         width: double.infinity,
         height: 60,
         child: MaterialButton(
