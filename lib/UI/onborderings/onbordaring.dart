@@ -27,7 +27,7 @@ class _OnbordaringScreenState extends State<OnbordaringScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(top: 40),
             child: FanCarouselImageSlider(
               sidesOpacity: 0,
               imageRadius: 20,
