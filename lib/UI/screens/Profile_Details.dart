@@ -1,3 +1,4 @@
+import 'package:dating_app/widgets/all_textField.dart';
 import 'package:dating_app/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
   final GlobalKey<FormState> _globalKey = GlobalKey();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _professionController = TextEditingController();
-  final TextEditingController _dayEDController = TextEditingController();
+
 
 
 
@@ -35,7 +36,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                       style: TextStyle(
                         color: Colors.redAccent,
                         fontWeight: FontWeight.w400,
-                        fontSize: 20
+                        fontSize: 15
                       ),
                     )),
                 ),
@@ -89,78 +90,22 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                   ),
                 ),
                 const SizedBox(height: 20,),
-        
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Form(
-                    key: _globalKey,
-                      child: Column(
-                        children: [
-                          TextFormField(
-                            controller: _nameController,
-                            decoration: InputDecoration(
-                              labelText: "Name",
-                                labelStyle: const TextStyle(
-                                  color: Colors.black
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  borderSide: BorderSide(color: Colors.grey.shade400),
-                                ),
-                                focusedBorder:  OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  borderSide: const BorderSide(color: Colors.redAccent),
-                                )
-                            ),
-                            ),
-                          const SizedBox(height: 10),
-                           TextFormField(
-                            controller: _professionController,
-                            decoration: InputDecoration(
-                                labelText: "Profession",
-                                labelStyle: const TextStyle(
-                                    color: Colors.black
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  borderSide: BorderSide(color: Colors.grey.shade400),
-                                ),
-                                focusedBorder:  OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  borderSide: const BorderSide(color: Colors.redAccent),
-                                )
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          Container(
-                            height: 60,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: Colors.redAccent.withOpacity(0.3)
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 15),
-                              child: Row(
-                                children: [
-                                  IconButton(onPressed: (){
-                            }, icon: const Icon(Icons.calendar_month,color: Colors.red,)),
-                                  const SizedBox(width: 5,),
-                                  const Text('Choose birthday date',style: TextStyle(color: Colors.red),),
-                                ],
-                              ),
-                            ),
-                          )
-        
-                        ],
-                      ),
-                      ),
+
+                AllTextField(
+                  globalKey: _globalKey,
+                  nameController: _nameController,
+                  professionController: _professionController,
+                  selectedDate: DateTime.now(),  // Set to a default date
+                  onDateSelected: (DateTime value) {
+                    // Handle the selected date
+                  },
                 ),
-                const SizedBox(height: 200,),
-                
-                Button(label: 'Conform', onPressed: (){})
-        
-              ],
+
+                const SizedBox(
+                height: 200,
+              ),
+              Button(label: 'Conform', onPressed: () {})
+            ],
             ),
           ),
         ),
@@ -168,3 +113,5 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
     );
   }
 }
+
+

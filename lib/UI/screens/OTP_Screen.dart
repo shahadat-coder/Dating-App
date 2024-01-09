@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:dating_app/UI/screens/Profile_Details.dart';
 import 'package:dating_app/UI/screens/auth/Login_withPhone.dart';
 import 'package:dating_app/widgets/button_widget.dart';
+import 'package:dating_app/widgets/secondsRemaining.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -18,43 +19,7 @@ class _OtpScreenState extends State<OtpScreen> {
   final GlobalKey<FormState> _globalKey = GlobalKey();
   final TextEditingController _pinController = TextEditingController();
 
-  int _secondsRemaining = 60;
-  late Timer _timer;
 
-  @override
-  void initState() {
-    super.initState();
-    startTimer();
-  }
-
-  void startTimer() {
-    const oneSecond = Duration(seconds: 1);
-    _timer = Timer.periodic(
-      oneSecond,
-          (Timer timer) {
-        if (_secondsRemaining == 0) {
-          timer.cancel();
-        } else {
-          setState(() {
-            _secondsRemaining--;
-          });
-        }
-      },
-    );
-  }
-
-  void resetTimer() {
-    setState(() {
-      _secondsRemaining = 60;
-    });
-    startTimer();
-  }
-
-  @override
-  void dispose() {
-    _timer.cancel();
-    super.dispose();
-  }
 
 
 
@@ -67,26 +32,7 @@ class _OtpScreenState extends State<OtpScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-            InkWell(
-              onTap: () {
-                Get.off(const LoginWithPhoneScreen());
-              },
-              child: Container(
-                height: 52,
-                width: 52,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 12),
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.redAccent,
-                  ),
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(color: Colors.grey.shade400, width: 1),
-                ),
-              ),
-            ),
+            const BackButton(),
             SizedBox(
               height: 50,
             ),
@@ -153,49 +99,10 @@ class _OtpScreenState extends State<OtpScreen> {
                 ),
                             ),
                           ),
-                Center(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (_secondsRemaining > 0)
-                        RichText(
-                          text: TextSpan(
-                            style: const TextStyle(color: Colors.grey),
-                            children: [
-                              const TextSpan(text: 'This code will expire in '),
-                              TextSpan(
-                                text:
-                                '${_secondsRemaining}s',
-                                // Pluralize "second" if needed
-                                style: const TextStyle(
-                                  color: Colors.redAccent,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      if (_secondsRemaining == 0)
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text('Code has expired',
-                                style: TextStyle(color: Colors.grey)),
-                            TextButton(
-                              onPressed: () {
-                                resetTimer();
-                              },
-                              style: TextButton.styleFrom(
-                                foregroundColor: Colors.redAccent,
-                              ),
-                              child: const Text('Resend Code'),
-                            ),
-                          ],
-                        ),
-                    ],
-                  ),
+                const Center(
+                  child: SecondsRemaining(),
                 ),
-                SizedBox(height: 25,),
+                const SizedBox(height: 25,),
                 Button(label: 'Continue', onPressed: (){
                   Get.to(const ProfileDetailsScreen());
                 })
