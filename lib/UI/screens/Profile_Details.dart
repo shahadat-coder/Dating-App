@@ -1,6 +1,9 @@
+import 'package:dating_app/UI/screens/Gender_screen.dart';
 import 'package:dating_app/widgets/all_textField.dart';
 import 'package:dating_app/widgets/button_widget.dart';
+import 'package:dating_app/widgets/skipButton.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProfileDetailsScreen extends StatefulWidget {
   const ProfileDetailsScreen({super.key});
@@ -12,9 +15,24 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
   final GlobalKey<FormState> _globalKey = GlobalKey();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _professionController = TextEditingController();
+  DateTime selectedDate = DateTime.now();
 
 
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
 
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,18 +45,9 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 320),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Skip',
-                      style: TextStyle(
-                        color: Colors.redAccent,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 15
-                      ),
-                    )),
+                const Padding(
+                  padding: EdgeInsets.only(left: 320),
+                  child: SkipButton(),
                 ),
               const Text("Profile details ",style: TextStyle(
                   fontWeight: FontWeight.w800,
@@ -95,16 +104,48 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                   globalKey: _globalKey,
                   nameController: _nameController,
                   professionController: _professionController,
-                  selectedDate: DateTime.now(),  // Set to a default date
-                  onDateSelected: (DateTime value) {
-                    // Handle the selected date
-                  },
+
+                ),
+                const SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                    height: 60,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.redAccent.withOpacity(0.3),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Row(
+                        children: [
+                          IconButton(
+                            onPressed: () async {
+                              _selectDate(context);
+                            },
+                            icon: const Icon(
+                              Icons.calendar_month,
+                              color: Colors.red,
+                            ),
+                          ),
+                          const SizedBox(width: 5,),
+                          Text(
+                            "${selectedDate.day}/${selectedDate.month}/${selectedDate.year} ",
+                            style: const TextStyle(color: Colors.red),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
 
                 const SizedBox(
                 height: 200,
               ),
-              Button(label: 'Conform', onPressed: () {})
+              Button(label: 'Conform', onPressed: () {
+                Get.to(const GenderScreen());
+              })
             ],
             ),
           ),
@@ -113,5 +154,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
     );
   }
 }
+
+
 
 

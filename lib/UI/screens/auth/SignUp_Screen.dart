@@ -20,7 +20,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
 
           children: [
-            Image.asset('assets/images/Logo.png',height: 150,width: 150,),
+            Image.asset('assets/images/logo.png', height: 150, width: 150,),
             const SizedBox(height: 30,),
             const Text("Sign Up to continue",style: TextStyle(
               fontFamily: 'FontAmr',
@@ -54,7 +54,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
             ),
             const SizedBox(height: 40,),
-            Image.asset('assets/images/or login with.png',),
+            Image.asset('assets/images/or login with.png'),
             const SizedBox(height: 20,),
             Padding(
               padding: const EdgeInsets.only(left: 80),

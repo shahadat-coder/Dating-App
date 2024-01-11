@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:dating_app/UI/screens/Profile_Details.dart';
 import 'package:dating_app/UI/screens/auth/Login_withPhone.dart';
+import 'package:dating_app/widgets/backButton.dart';
 import 'package:dating_app/widgets/button_widget.dart';
+
 import 'package:dating_app/widgets/secondsRemaining.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,8 +34,8 @@ class _OtpScreenState extends State<OtpScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-            const BackButton(),
-            SizedBox(
+               BackButtonAll(onClick: () { Get.off(const LoginWithPhoneScreen()); },),
+            const SizedBox(
               height: 50,
             ),
         
