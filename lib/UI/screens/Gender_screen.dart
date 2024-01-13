@@ -1,3 +1,4 @@
+import 'package:dating_app/UI/screens/Interest_Screen.dart';
 import 'package:dating_app/UI/screens/Profile_Details.dart';
 import 'package:dating_app/widgets/backButton.dart';
 import 'package:dating_app/widgets/button_widget.dart';
@@ -22,7 +23,7 @@ class _GenderScreenState extends State<GenderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(top: 50, left: 15, right: 15),
+        padding: const EdgeInsets.only(top: 50, left: 15, right: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -31,14 +32,14 @@ class _GenderScreenState extends State<GenderScreen> {
               children: [
                 BackButtonAll(
                   onClick: () {
-                    Get.to(const ProfileDetailsScreen());
+                    Get.off(const ProfileDetailsScreen());
                   },
                 ),
-                SkipButton(),
+                const SkipButton(),
               ],
             ),
-            SizedBox(height: 30,),
-            Text(
+            const SizedBox(height: 30,),
+            const Text(
               "I am a ",
               style: TextStyle(
                 fontWeight: FontWeight.w800,
@@ -46,15 +47,17 @@ class _GenderScreenState extends State<GenderScreen> {
                 color: Colors.black,
               ),
             ),
-            SizedBox(height: 60,),
+            const SizedBox(height: 60,),
             buildRadioButton("Woman", 1, womanContainerBorderColor),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             buildRadioButton("Man", 2, manContainerBorderColor),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             buildRadioButton("Others", 3, othersContainerBorderColor),
-            Spacer(),
-            Button(label: "Continue", onPressed: () {}),
-            SizedBox(height: 15,),
+            const Spacer(),
+            Button(label: "Continue", onPressed: () {
+              Get.to(const InterestScreen());
+            }),
+            const SizedBox(height: 15,),
           ],
         ),
       ),
@@ -68,7 +71,7 @@ class _GenderScreenState extends State<GenderScreen> {
         height: 60,
         width: double.infinity,
         decoration: BoxDecoration(
-          border: Border.all(color: containerBorderColor, width: 1),
+          border: Border.all(color: containerBorderColor, width: 2),
           borderRadius: BorderRadius.circular(15),
           color: Colors.white,
         ),
@@ -79,7 +82,7 @@ class _GenderScreenState extends State<GenderScreen> {
             children: [
               Text(
                 label,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.w400,
                   color: Colors.black,

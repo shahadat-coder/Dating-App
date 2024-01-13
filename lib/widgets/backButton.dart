@@ -1,11 +1,11 @@
-import 'package:dating_app/UI/screens/auth/Login_withPhone.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BackButtonAll extends StatefulWidget {
   const BackButtonAll({
-    super.key, required this.onClick,
-  });
+    Key? key,
+    required this.onClick,
+  }) : super(key: key);
 
   @override
   State<BackButtonAll> createState() => _BackButtonAllState();
@@ -14,12 +14,10 @@ class BackButtonAll extends StatefulWidget {
 }
 
 class _BackButtonAllState extends State<BackButtonAll> {
-  get onClick => null;
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onClick,
+      onTap: widget.onClick,
       child: Container(
         height: 52,
         width: 52,
