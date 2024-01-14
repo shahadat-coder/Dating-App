@@ -1,4 +1,5 @@
 import 'package:dating_app/UI/screens/Gender_screen.dart';
+import 'package:dating_app/UI/screens/searchFriends_screen.dart';
 import 'package:dating_app/widgets/backButton.dart';
 import 'package:dating_app/widgets/button_widget.dart';
 import 'package:dating_app/widgets/interests_category.dart';
@@ -52,7 +53,9 @@ class _InterestScreenState extends State<InterestScreen> {
               const SizedBox(height: 30,),
               const InterestsCategory(),
               const SizedBox(height: 100,),
-              Button(label: "Continue", onPressed: (){}),
+              Button(label: "Continue", onPressed: (){
+                Get.to(const SearchFriendsScreen());
+              }),
 
 
             ],
