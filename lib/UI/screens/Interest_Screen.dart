@@ -1,7 +1,7 @@
 import 'package:dating_app/UI/screens/Gender_screen.dart';
 import 'package:dating_app/widgets/backButton.dart';
 import 'package:dating_app/widgets/button_widget.dart';
-import 'package:dating_app/widgets/Interests_Widgets/interests_category.dart';
+import 'package:dating_app/widgets/interests_category.dart';
 import 'package:dating_app/widgets/skipButton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
