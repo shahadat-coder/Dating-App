@@ -35,7 +35,7 @@ class _GenderScreenState extends State<GenderScreen> {
                     Get.off(const ProfileDetailsScreen());
                   },
                 ),
-                const SkipButton(),
+                 SkipButton(onPressed: () {  },),
               ],
             ),
             const SizedBox(height: 30,),

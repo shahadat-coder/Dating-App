@@ -1,6 +1,9 @@
 import 'package:dating_app/widgets/button_widget.dart';
 import 'package:dating_app/widgets/skipButton.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../widgets/bottom_nav.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});
@@ -19,9 +22,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 320),
-              child: SkipButton(),
+             Padding(
+              padding: const EdgeInsets.only(left: 320),
+              child: SkipButton(onPressed: () { Get.to(const BottomNavBarScreen()); },),
             ),
             const SizedBox(height: 70,),
             Center(child: Image.asset('assets/images/chat.png',height: 240,width: 240,)),
@@ -48,7 +51,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
             Button(label: 'I want to be notified', onPressed: () {
 
             },),
-            SizedBox(height: 16,),
+            const SizedBox(height: 16,),
           ],
         ),
       ),

@@ -45,9 +45,9 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Padding(
+                 Padding(
                   padding: EdgeInsets.only(left: 320),
-                  child: SkipButton(),
+                  child: SkipButton(onPressed: () {  },),
                 ),
               const Text("Profile details ",style: TextStyle(
                   fontWeight: FontWeight.w800,

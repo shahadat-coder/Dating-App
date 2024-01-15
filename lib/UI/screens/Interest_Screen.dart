@@ -33,7 +33,7 @@ class _InterestScreenState extends State<InterestScreen> {
                       Get.off(const GenderScreen());
                     },
                   ),
-                  const SkipButton(),
+                  SkipButton(onPressed: () {  },),
                 ],
               ),
               const SizedBox(height: 30,),

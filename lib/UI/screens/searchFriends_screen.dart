@@ -21,9 +21,11 @@ class _SearchFriendsScreenState extends State<SearchFriendsScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 320),
-              child: SkipButton(),
+             Padding(
+              padding: const EdgeInsets.only(left: 320),
+              child: SkipButton(onPressed: () {
+                Get.to(const NotificationScreen());
+              },),
             ),
             const SizedBox(height: 70,),
             Center(child: Image.asset('assets/images/people.png',height: 240,width: 240,)),
@@ -48,7 +50,7 @@ class _SearchFriendsScreenState extends State<SearchFriendsScreen> {
             ),
             const Spacer(),
             Button(label: 'Access to a contact list', onPressed: () {
-              Get.to(const NotificationScreen());
+
             },),
             const SizedBox(height: 16,),
           ],
