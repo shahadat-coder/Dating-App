@@ -1,20 +1,36 @@
+import 'package:dating_app/Component/doscoverd_card.dart';
 import 'package:dating_app/UI/screens/notification_screen.dart';
-import 'package:dating_app/widgets/select_row.dart';
+import 'package:dating_app/models/dammy_json/home_page_json.dart';
+import 'package:dating_app/widgets/selected_row.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_swipecards/flutter_swipecards.dart';
 import 'package:get/get.dart';
 import '../../widgets/backButton.dart';
 import '../../widgets/settingButton.dart';
 
-class DiscoverScreen extends StatefulWidget {
-  const DiscoverScreen({super.key});
+class HomePageScreen extends StatefulWidget {
+  const HomePageScreen({super.key});
 
   @override
-  State<DiscoverScreen> createState() => _DiscoverScreenState();
+  State<HomePageScreen> createState() => _HomePageScreenState();
 }
-class _DiscoverScreenState extends State<DiscoverScreen> {
+class _HomePageScreenState extends State<HomePageScreen> {
+  CardController controller = CardController();
 
+  List items = [];
+  int itemLength = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      items = discoverItems;
+      itemLength = discoverItems.length;
+    });
+  }
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
         body: Padding(
           padding: const EdgeInsets.only(top: 50, left: 15, right: 15),
@@ -54,43 +70,32 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                 ],
               ),
               const SizedBox(height: 35,),
-              Center(
-                child: Container(
-                  width: 295,
-                  height: 450,
-                  decoration:  BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    image: const DecorationImage(
-                        image: AssetImage('assets/images/black_girl.png'),
-                      fit:BoxFit.cover,
-                    ),
-                  ),
-                  child: Container(
-
-                    margin: const EdgeInsets.only(top: 380,bottom: 3,left: 3,right: 3),
-                    color: Colors.black26,
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 10,top: 10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Jessica Parker, 23',style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18,
-                            color: Colors.white
-                          ),),
-                          SizedBox(height: 2,),
-                          Text('Professional model',style: TextStyle(
-                              fontWeight: FontWeight.w800,
-                              fontSize: 12,
-                              color: Colors.white70,
-                          ),),
-
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+              Expanded(
+                flex: 4,
+                  child:TinderSwapCard(
+                    cardController: controller,
+                    maxHeight: size.height * 0.75,
+                    maxWidth: size.width,
+                    minHeight: size.height * 0.5,
+                    minWidth: size.width * 0.8,
+                    orientation: AmassOrientation.top,
+                    swipeUp: true,
+                    swipeDown: true,
+                    stackNum: 2,
+                    totalNum: itemLength,
+                    cardBuilder: (context, index) {
+                      return DiscoverCard(
+                        itemList: items[index],
+                      );
+                    },
+                    swipeCompleteCallback: (CardSwipeOrientation orientation, int index) {
+                      if(index == (items.length - 1)) {
+                        setState(() {
+                          itemLength = items.length - 1;
+                        });
+                      }
+                    },
+                  )
               ),
               const SizedBox(height: 50,),
               const SelectRow()

@@ -40,6 +40,7 @@ dependencies:
   rating: ^1.0.0-dev.1
   flutter_staggered_grid_view: ^0.7.0
   shimmer: ^3.0.0
+  flutter_swipecards: ^0.2.1
   flutter_reaction_button: ^3.0.0+3
   shared_preferences: ^2.2.2
   fan_carousel_image_slider: ^0.1.2

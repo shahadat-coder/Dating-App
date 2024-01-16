@@ -1,4 +1,4 @@
-import 'package:dating_app/UI/screens/Discover_Screen.dart';
+import 'package:dating_app/UI/screens/homepage.dart';
 import 'package:dating_app/UI/screens/Massage_Screen.dart';
 import 'package:dating_app/UI/screens/matches_Screen.dart';
 import 'package:dating_app/UI/screens/profile_screen.dart';
@@ -22,7 +22,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   bool showUnselectedLabels = false;
 
   final screens =[
-    const DiscoverScreen(),
+    const HomePageScreen(),
     const MatchesScreen(),
     const MassageScreen(),
     const ProfileScreen(),
