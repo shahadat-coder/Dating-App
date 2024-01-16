@@ -1,4 +1,4 @@
-import 'package:dating_app/Component/doscoverd_card.dart';
+import 'package:dating_app/Component/discoverd_card.dart';
 import 'package:dating_app/UI/screens/notification_screen.dart';
 import 'package:dating_app/models/dammy_json/home_page_json.dart';
 import 'package:dating_app/widgets/selected_row.dart';

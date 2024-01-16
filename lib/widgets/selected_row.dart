@@ -15,6 +15,7 @@ class SelectRow extends StatelessWidget {
           children: [
             InkWell(
               onTap: (){},
+              borderRadius: BorderRadius.circular(20),
               child: Container(
                 height: 50,
                 width: 50,
@@ -27,6 +28,7 @@ class SelectRow extends StatelessWidget {
             ),
             InkWell(
               onTap: (){},
+              borderRadius: BorderRadius.circular(20),
               child: Container(
                 height:80,
                 width: 80,
@@ -39,6 +41,7 @@ class SelectRow extends StatelessWidget {
             ),
             InkWell(
               onTap: (){},
+              borderRadius: BorderRadius.circular(20),
               child: Container(
                 height: 50,
                 width: 50,
