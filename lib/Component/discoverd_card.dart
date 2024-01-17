@@ -45,7 +45,7 @@ class DiscoverCard extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Image.asset("assets/images/map.svg"),
+                    Image.asset("assets/images/map.png"),
                     SizedBox(width: 5,),
                     Text(
                       itemList['distance'],

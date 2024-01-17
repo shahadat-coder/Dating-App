@@ -38,6 +38,7 @@ class CircleButton extends StatelessWidget {
               )
             ]
         ),
+        child: Image.asset(assetImage),
         //child: SvgPicture.asset(svgPicture),
       ),
     );
