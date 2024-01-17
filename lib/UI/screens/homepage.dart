@@ -1,6 +1,7 @@
 import 'package:dating_app/Component/discoverd_card.dart';
 import 'package:dating_app/UI/screens/notification_screen.dart';
 import 'package:dating_app/models/dammy_json/home_page_json.dart';
+import 'package:dating_app/utils/constants/colors.dart';
 import 'package:dating_app/widgets/selected_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swipecards/flutter_swipecards.dart';
@@ -97,8 +98,34 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     },
                   )
               ),
-              const SizedBox(height: 50,),
-              const SelectRow()
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CircleButton(
+                      onTap: () {},
+                      bgColor: white,
+                      shadowColor: black.withOpacity(0.2),
+                      assetImage: "assets/images/clean.png",
+                    ),
+                    CircleButton(
+                      onTap: () {},
+                      height: 99,
+                      width: 99,
+                      bgColor: primary,
+                      shadowColor: primary.withOpacity(0.3),
+                      assetImage: "assets/images/love (2).png",
+                    ),
+                    CircleButton(
+                      onTap: () {},
+                      bgColor: white,
+                      shadowColor: black.withOpacity(0.2),
+                      assetImage: "assets/images/star (1).png",
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),

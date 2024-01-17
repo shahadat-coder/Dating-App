@@ -1,59 +1,44 @@
 import 'package:flutter/material.dart';
 
-class SelectRow extends StatelessWidget {
-  const SelectRow({
-    super.key,
-  });
+
+class CircleButton extends StatelessWidget {
+  final double? height, width;
+  final String assetImage;
+  final Color? bgColor, shadowColor;
+  final VoidCallback onTap;
+
+  const CircleButton({
+    Key? key,
+    this.height = 78,
+    this.width = 78,
+    required this.assetImage,
+    this.bgColor,
+    this.shadowColor,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            InkWell(
-              onTap: (){},
-              borderRadius: BorderRadius.circular(20),
-              child: Container(
-                height: 50,
-                width: 50,
-                decoration: BoxDecoration(
-                    color: Colors.white70,
-                    borderRadius: BorderRadius.circular(100)
-                ),
-                child: const Icon(Icons.clear,color: Colors.deepOrangeAccent,size: 30,),
-              ),
-            ),
-            InkWell(
-              onTap: (){},
-              borderRadius: BorderRadius.circular(20),
-              child: Container(
-                height:80,
-                width: 80,
-                decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(100)
-                ),
-                child: const Icon(Icons.favorite,color: Colors.white,size: 50,),
-              ),
-            ),
-            InkWell(
-              onTap: (){},
-              borderRadius: BorderRadius.circular(20),
-              child: Container(
-                height: 50,
-                width: 50,
-                decoration: BoxDecoration(
-                    color: Colors.white70,
-                    borderRadius: BorderRadius.circular(100)
-                ),
-                child: const Icon(Icons.star_purple500_sharp,color: Colors.purpleAccent,size: 30,),
-              ),
-            ),
-          ],
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(height! / 2),
+      child: Container(
+        height: height,
+        width: width,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: bgColor,
+            boxShadow: [
+              BoxShadow(
+                color: shadowColor!,
+                spreadRadius: 1,
+                blurRadius: 33,
+                offset: Offset(0, 3),
+              )
+            ]
         ),
+        //child: SvgPicture.asset(svgPicture),
       ),
     );
   }
