@@ -34,7 +34,7 @@ class CircleButton extends StatelessWidget {
                 color: shadowColor!,
                 spreadRadius: 1,
                 blurRadius: 33,
-                offset: Offset(0, 3),
+                offset: const Offset(0, 3),
               )
             ]
         ),

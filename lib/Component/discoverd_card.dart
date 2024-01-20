@@ -38,18 +38,18 @@ class DiscoverCard extends StatelessWidget {
               top: 20,
               left: 16,
               child: Container(
-                padding: EdgeInsets.all(defaultMediumPadding),
+                padding: const EdgeInsets.all(defaultMediumPadding),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(defaultBorderRadius / 2),
-                  color: black.withOpacity(0.5),
+                  color: Colors.grey.shade400,
                 ),
                 child: Row(
                   children: [
-                    Image.asset("assets/images/map.png"),
-                    SizedBox(width: 5,),
+                    Image.asset("assets/images/map.png",color: Colors.grey.shade800,),
+                    const SizedBox(width: 5,),
                     Text(
                       itemList['distance'],
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: white,
                           fontSize: 12,
                           fontWeight: FontWeight.bold
@@ -64,9 +64,9 @@ class DiscoverCard extends StatelessWidget {
               left: 0,
               right: 0,
               child: Container(
-                padding: EdgeInsets.all(defaultPadding - 5),
+                padding: const EdgeInsets.all(defaultPadding - 5),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.vertical(
+                  borderRadius: const BorderRadius.vertical(
                       bottom: Radius.circular(defaultBorderRadius)
                   ),
                   color: black.withOpacity(0.5),
@@ -76,16 +76,16 @@ class DiscoverCard extends StatelessWidget {
                   children: [
                     Text(
                       "${itemList['name']}, ${itemList['age']}",
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: white,
                           fontSize: 24,
                           fontWeight: FontWeight.bold
                       ),
                     ),
-                    SizedBox(height: defaultSmallPadding),
+                    const SizedBox(height: defaultSmallPadding),
                     Text(
                       itemList['passion'],
-                      style: TextStyle(color: white),
+                      style: const TextStyle(color: white),
                     )
                   ],
                 ),
