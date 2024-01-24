@@ -45,6 +45,7 @@ dependencies:
   shared_preferences: ^2.2.2
   fan_carousel_image_slider: ^0.1.2
   lottie: ^2.7.0
+  proste_bezier_curve: ^2.0.2
   intl_phone_field: ^3.2.0
   pin_code_fields: ^8.0.1
   flutter_snake_navigationbar: ^0.6.1

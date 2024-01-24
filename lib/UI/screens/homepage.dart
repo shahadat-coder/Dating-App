@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swipecards/flutter_swipecards.dart';
 import 'package:get/get.dart';
 import '../../widgets/backButton.dart';
-import '../../widgets/settingButton.dart';
+import '../../widgets/filterButton.dart';
 
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({super.key});
@@ -67,7 +67,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       ),
                     ],
                   ),
-                  const SettingsButton(),
+                  const FilterButton(),
                 ],
               ),
               const SizedBox(height: 35,),

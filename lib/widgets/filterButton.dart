@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 
-class SettingsButton extends StatefulWidget {
-  const SettingsButton({
+class FilterButton extends StatefulWidget {
+  const FilterButton({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<SettingsButton> createState() => _SettingsButtonState();
+  State<FilterButton> createState() => _FilterButtonState();
 
 
 }
 
-class _SettingsButtonState extends State<SettingsButton> {
+class _FilterButtonState extends State<FilterButton> {
   @override
   Widget build(BuildContext context) {
     return InkWell(

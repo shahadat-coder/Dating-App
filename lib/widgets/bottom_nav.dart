@@ -25,7 +25,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
     const HomePageScreen(),
     const MatchesScreen(),
     const MassageScreen(),
-    const ProfileScreen(),
+    const AccountPage(),
   ];
 
 @override

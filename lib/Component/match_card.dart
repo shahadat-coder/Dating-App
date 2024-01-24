@@ -61,7 +61,7 @@ class MatchCard extends StatelessWidget {
                           child: IconButton(
                             onPressed: () {},
                             splashRadius: 25,
-                            icon: Image.asset("assets/images/dislike.png", color: white,),
+                            icon: Image.asset("assets/images/close-small.png", color: white,),
                           )
                       ),
                       Expanded(
